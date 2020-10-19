@@ -1,65 +1,97 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import NextLink from "next/link";
+import {
+	Avatar,
+	Box,
+	Button,
+	Flex,
+	Heading,
+	Stack,
+	Link,
+	Text,
+	useColorMode,
+} from "@chakra-ui/core";
+import { FaGithub, FaTwitter } from "react-icons/fa";
+
+import Header from "../components/Header";
+import Project from "../components/Project";
+import Projects from "../components/Projects";
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+	const { colorMode, toggleColorMode } = useColorMode();
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+	return (
+		<>
+			<Head>
+				<title>Portfolio</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+			{/* Container */}
+			<Box
+				maxW="70vw"
+				mx="auto"
+				height="100vh"
+				justifyContent="space-between"
+				pt="10"
+			>
+				{/* Heading */}
+				<Box pos="relative">
+					<Heading>Hello, I'm Joël Kuijper.</Heading>
+					{/* Text */}
+					<Text mt="4">
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Quia, repellat consectetur voluptatum deleniti,
+						ducimus corrupti qui eos, dolorem error reprehenderit
+						atque aliquid officia magnam maxime! Illum quas facilis
+						accusantium accusamus quasi fugiat eaque ullam
+						asperiores amet? Nesciunt, recusandae officia.
+						Distinctio adipisci cum eos dolore. Doloremque aliquid
+						nisi fuga sapiente fugit!
+					</Text>
+					{/* <Button
+						onClick={toggleColorMode}
+						pos="absolute"
+						right="0"
+						top={{ md: "0" }}
+						bottom={{ sm: "0" }}
+					>
+						{colorMode === "light" ? "🌙" : "🌞"}
+					</Button> */}
+				</Box>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+				<Flex mt="10">
+					<Stack isInline="true" alignItems="center">
+						<Avatar
+							name="Joël Kuijper"
+							src="https://avatars3.githubusercontent.com/u/31251240?v=4"
+						/>
+						<Flex
+							alignItems="center"
+							ml="4"
+							as={Link}
+							href="https://twitter.com/joel_kuijper"
+							target="_blank"
+						>
+							<Box as={FaTwitter} size="20px" />
+							<Text ml="2">Twitter</Text>
+						</Flex>
+						<Flex
+							alignItems="center"
+							ml="4"
+							as={Link}
+							href="https://github.com/Joehoel"
+							target="_blank"
+						>
+							<Box as={FaGithub} size="20px" />
+							<Text ml="2">Github</Text>
+						</Flex>
+					</Stack>
+				</Flex>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+				{/* Projects */}
+				<Projects />
+			</Box>
+		</>
+	);
 }

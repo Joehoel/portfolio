@@ -1,7 +1,17 @@
-import '../styles/globals.css'
+import { ThemeProvider, ColorModeProvider, CSSReset } from "@chakra-ui/core";
+import customTheme from "../theme";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+
+
+function App({ Component, pageProps }) {
+	return (
+		<ThemeProvider theme={customTheme}>
+			<ColorModeProvider>
+				<CSSReset />
+				<Component {...pageProps} />
+			</ColorModeProvider>
+		</ThemeProvider>
+	);
 }
 
-export default MyApp
+export default App;
