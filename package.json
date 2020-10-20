@@ -17,5 +17,9 @@
 		"react-dom": "16.14.0",
 		"react-icons": "^3.11.0",
 		"swr": "^0.3.5"
+	},
+	"devDependencies": {
+		"eslint": "^7.11.0",
+		"eslint-plugin-react": "^7.21.5"
 	}
 }

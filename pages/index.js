@@ -1,5 +1,4 @@
 import Head from "next/head";
-import NextLink from "next/link";
 import {
 	Avatar,
 	Box,
@@ -13,15 +12,16 @@ import {
 } from "@chakra-ui/core";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 
-import Header from "../components/Header";
-import Project from "../components/Project";
+// import Header from "../components/Header";
+// import Project from "../components/Project";
 import Projects from "../components/Projects";
 
 export default function Home() {
 	const { colorMode, toggleColorMode } = useColorMode();
+	const bgColor = { dark: "#202124" };
 
 	return (
-		<>
+		<Box bg={bgColor[colorMode]}>
 			<Head>
 				<title>Portfolio</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -37,7 +37,7 @@ export default function Home() {
 			>
 				{/* Heading */}
 				<Box pos="relative">
-					<Heading>Hello, I'm Joël Kuijper.</Heading>
+					<Heading>Hello, {"I'm"} Joël Kuijper.</Heading>
 					{/* Text */}
 					<Text mt="4">
 						Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -49,7 +49,7 @@ export default function Home() {
 						Distinctio adipisci cum eos dolore. Doloremque aliquid
 						nisi fuga sapiente fugit!
 					</Text>
-					{/* <Button
+					<Button
 						onClick={toggleColorMode}
 						pos="absolute"
 						right="0"
@@ -57,9 +57,8 @@ export default function Home() {
 						bottom={{ sm: "0" }}
 					>
 						{colorMode === "light" ? "🌙" : "🌞"}
-					</Button> */}
+					</Button>
 				</Box>
-
 				<Flex mt="10">
 					<Stack isInline="true" alignItems="center">
 						<Avatar
@@ -88,10 +87,9 @@ export default function Home() {
 						</Flex>
 					</Stack>
 				</Flex>
-
 				{/* Projects */}
 				<Projects />
 			</Box>
-		</>
+		</Box>
 	);
 }
